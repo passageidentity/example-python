@@ -4,6 +4,18 @@ Passage provides a Python package to easily authenticate HTTP requests. This rep
 
 ## Configuring a Flask Server
 The `passageidentity` package depends on a PASSAGE_PUBLIC_KEY environment variable being set. An app's PASSAGE_PUBLIC_KEY can be copied off of the Passage Console.
+To run this example app, make a virtual environment and run the following commands (the environment variables are stored in `.flaskenv`).
+
+```bash
+Go ahead and create a virtual environment by typing
+>> python3 -m venv venv
+Once it is created, you must now activate the environment by using:
+>> source venv/bin/activate
+Install Python dependencies
+>> pip install -r requirements.txt
+Run the web server
+>> flask run
+```
 
 ## Authenticating an HTTP Request
 A Python server can easily authenticate an HTTP request using the Passage SDK, as shown below.
