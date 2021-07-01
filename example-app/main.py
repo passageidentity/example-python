@@ -8,14 +8,10 @@ auth = Blueprint('auth', __name__)
 @auth.before_request
 def before_request():
     try:
-        print("starting auth")
         psg = Passage()
-        print(request.headers)
         g.user = psg.authenticateRequest(request)
-        print(g.user)
     except PassageError as e:
         # this is an issue with the auth check, return 401
-        print("error performing auth: " + str(e))
         return render_template('unauthorized.html')
 
 #auth.before_request(before_request)
@@ -26,6 +22,7 @@ def index():
 
 @auth.route('/dashboard', methods=['GET'])
 def dashboard():
+    # g.user should be set here. You can then do authorization checks and show the dashboard as appropriate
     return render_template('dashboard.html')
 
 	
