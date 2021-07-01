@@ -1,0 +1,16 @@
+.form-container {
+  background-color: white;
+  width: 400px;
+  /* height: 500px; */
+  margin-left: auto;
+  margin-right: auto;
+  border: 4px solid #b7b7b7;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+@media screen and (max-width: 500px) {
+  .form-container {
+    width: 90vw;
+  }
+}
