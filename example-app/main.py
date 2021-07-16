@@ -1,14 +1,18 @@
 from flask import Blueprint, g, render_template, request
-
+import os
 from passageidentity import Passage, PassageError
 
 main = Blueprint('main', __name__)
 auth = Blueprint('auth', __name__)
 
+# Passage setup
+PASSAGE_API_KEY = os.environ.get("PASSAGE_API_KEY")
+PASSAGE_APP_HANDLE = os.environ.get("PASSAGE_APP_HANDLE")
+psg = Passage(PASSAGE_APP_HANDLE, PASSAGE_API_KEY)
+
 @auth.before_request
 def before_request():
     try:
-        psg = Passage()
         g.user = psg.authenticateRequest(request)
     except PassageError as e:
         # this is an issue with the auth check, return 401
@@ -23,6 +27,9 @@ def index():
 @auth.route('/dashboard', methods=['GET'])
 def dashboard():
     # g.user should be set here. You can then do authorization checks and show the dashboard as appropriate
-    return render_template('dashboard.html')
+
+    # use Passage to get the user information and add it to the dashboard
+    psg_user = psg.getPassageUser(g.user)
+    return render_template('dashboard.html', email=psg_user.email)
 
 	
