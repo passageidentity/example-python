@@ -21,14 +21,15 @@ Run the web server
 ```
 
 ## Authenticating an HTTP Request
-A Python server can easily authenticate an HTTP request using the Passage SDK, as shown below.
+A Python server can easily authenticate an HTTP request using the Passage SDK, as shown below. You must pass the Passage app handle when initializing
+the Passage object. If you would like to use management functionality like getting user information, you must also provide an API key, which can be generated in the Passage console. To authenticate a request, an API key is NOT required.
 
 ```python
 @auth.before_request
 def before_request():
     try:
         # use passage to set the user handle
-        psg = Passage()
+        psg = Passage(psg_app_handle)
         g.passageHandle = psg.authenticateRequest(request)
     except PassageError as e:
         # this is an issue with the auth check, return 401
@@ -39,7 +40,6 @@ def authenticatedEndpoint():
     user = g.passageHandle
 	# Successful authentication. Proceed...
 
-}
 ```
 
 ## Authorizing a User
@@ -57,6 +57,27 @@ except:
 # Successful authentication AND authorization. Proceed...
 
 }
+```
+
+## Get User
+ To get user information, you can use the Passage SDK with an API key. This will authenticate your web server to Passage and grant you management
+ access to user information. API keys should never be hard-coded in source code, but stored in environment variables or a secrets storage mechanism.
+
+```python
+@auth.before_request
+def before_request():
+    try:
+        # use passage to set the user handle
+        psg = Passage(psg_app_handle, psg_api_key)
+        g.passageHandle = psg.authenticateRequest(request)
+    except PassageError as e:
+        # this is an issue with the auth check, return 401
+        return render_template('unauthorized.html')
+
+@auth.route('/home')
+def authenticatedEndpoint():
+    user = psg.getUser(g.passageHandle)
+	print(user.email)
 ```
 
 ## Adding Authentication to the Frontend
