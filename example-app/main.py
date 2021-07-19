@@ -29,7 +29,7 @@ def dashboard():
     # g.user should be set here. You can then do authorization checks and show the dashboard as appropriate
 
     # use Passage to get the user information and add it to the dashboard
-    psg_user = psg.getPassageUser(g.user)
+    psg_user = psg.getUser(g.user)
     return render_template('dashboard.html', email=psg_user.email)
 
 	

@@ -76,7 +76,7 @@ def before_request():
 
 @auth.route('/home')
 def authenticatedEndpoint():
-    user = psg.getUserInfo(g.passageHandle)
+    user = psg.getUser(g.passageHandle)
 	print(user.email)
 ```
 
