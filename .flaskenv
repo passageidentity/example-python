@@ -1,3 +1,4 @@
 FLASK_APP=example-app
-PASSAGE_APP_HANDLE=iTIKxhgbul
+FLASK_ENV=development
+PASSAGE_APP_ID=
 PASSAGE_API_KEY=
