@@ -7,8 +7,8 @@ auth = Blueprint('auth', __name__)
 
 # Passage setup
 PASSAGE_API_KEY = os.environ.get("PASSAGE_API_KEY")
-PASSAGE_APP_HANDLE = os.environ.get("PASSAGE_APP_HANDLE")
-psg = Passage(PASSAGE_APP_HANDLE, PASSAGE_API_KEY)
+PASSAGE_APP_ID = os.environ.get("PASSAGE_APP_ID")
+psg = Passage(PASSAGE_APP_ID, PASSAGE_API_KEY)
 
 @auth.before_request
 def before_request():
