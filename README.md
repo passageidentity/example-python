@@ -3,7 +3,8 @@
 Passage provides a Python package to easily authenticate HTTP requests. This repo is an example of how to use Passage in a Python Flask web application.
 
 ## Configuring a Flask Server
-The [passage-identity](https://pypi.org/project/passage-identity/) package depends on a PASSAGE_PUBLIC_KEY environment variable being set. An app's PASSAGE_APP_ID can be copied off of the Passage Console.
+The [passage-identity](https://pypi.org/project/passage-identity/) package depends on a PASSAGE_APP_ID environment variable being set. An application's ID can be copied off of the Passage Console. In this example app, we use the environmnet variable to initialize the Passage SDK and in the HTML template for the login page. 
+
 To run this example app, make a virtual environment and run the following commands (the environment variables are stored in `.flaskenv`).
 
 ```bash
@@ -43,7 +44,7 @@ def authenticatedEndpoint():
 ```
 
 ## Authorizing a User
-It is important to remember that the psg.authenticateRequest() function validates that a request is properly authenticated, but makes no assertions about who it is authorized for. To perform an authorization check, the Passage User ID can be referenced.
+It is important to remember that the `psg.authenticateRequest()` function validates that a request is properly authenticated, but makes no assertions about who it is authorized for. To perform an authorization check, the Passage User ID can be referenced.
 In the above example, it would look something like this:
 
 ```python
@@ -81,7 +82,7 @@ def authenticatedEndpoint():
 ```
 
 ## Adding Authentication to the Frontend
-The easiest way to add authentication to a web frontend is with a Passage Element. The HTML below will automatically embed a complete UI/UX for user sign-in and sign-up.
+The easiest way to add authentication to a web frontend is with a Passage Element. The HTML below will automatically embed a complete UI/UX for user sign-in and sign-up. In this example application, we automatically use the PASSAGE_APP_ID environment variable in the `data-app` attribute.
 
 ```html
 <!-- Passage will populate this div with a complete authentication UI/UX. -->
