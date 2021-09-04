@@ -22,7 +22,7 @@ def before_request():
 
 @main.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', psg_app_id=PASSAGE_APP_ID)
 
 @auth.route('/dashboard', methods=['GET'])
 def dashboard():
