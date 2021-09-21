@@ -82,11 +82,11 @@ def authenticatedEndpoint():
 ```
 
 ## Adding Authentication to the Frontend
-The easiest way to add authentication to a web frontend is with a Passage Element. The HTML below will automatically embed a complete UI/UX for user sign-in and sign-up. In this example application, we automatically use the PASSAGE_APP_ID environment variable in the `data-app` attribute.
+The easiest way to add authentication to a web frontend is with a Passage Element. The HTML below will automatically embed a complete UI/UX for user sign-in and sign-up. In this example application, we automatically use the PASSAGE_APP_ID environment variable in the `app-id` attribute.
 
 ```html
 <!-- Passage will populate this div with a complete authentication UI/UX. -->
-<div id="passage-auth" data-app="<Passage App ID>"></div>
+<passage-auth app-id="<Passage App ID>"></passage-auth>
 
 <!-- Include the passage-web JavaScript from the Passage CDN. -->
 <script src="https://cdn.passage.id/passage-web.js"></script>
