@@ -8,7 +8,11 @@ auth = Blueprint('auth', __name__)
 # Passage setup
 PASSAGE_API_KEY = os.environ.get("PASSAGE_API_KEY")
 PASSAGE_APP_ID = os.environ.get("PASSAGE_APP_ID")
-psg = Passage(PASSAGE_APP_ID, PASSAGE_API_KEY)
+try:
+    psg = Passage(PASSAGE_APP_ID, PASSAGE_API_KEY)
+except PassageError as e:
+    print(e)
+    exit()
 
 @auth.before_request
 def before_request():
