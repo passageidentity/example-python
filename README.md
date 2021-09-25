@@ -2,6 +2,11 @@
 
 Passage provides a Python package to easily authenticate HTTP requests. This repo is an example of how to use Passage in a Python Flask web application.
 
+## Configure Environment Variables
+
+1. Get your Passage App ID and an API Key from the [Passage Console](https://console.passage.id).
+2. Fill in the placeholder variables in `.flaskenv` with these values.
+
 ## Configuring a Flask Server
 The [passage-identity](https://pypi.org/project/passage-identity/) package depends on a PASSAGE_APP_ID environment variable being set. An application's ID can be copied off of the Passage Console. In this example app, we use the environmnet variable to initialize the Passage SDK and in the HTML template for the login page. 
 
