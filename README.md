@@ -8,7 +8,8 @@ Passage provides a Python package to easily authenticate HTTP requests. This rep
 2. Fill in the placeholder variables in `.flaskenv` with these values.
 
 ## Configuring a Flask Server
-The [passage-identity](https://pypi.org/project/passage-identity/) package depends on a PASSAGE_APP_ID environment variable being set. An application's ID can be copied off of the Passage Console. In this example app, we use the environmnet variable to initialize the Passage SDK and in the HTML template for the login page. 
+
+The [passage-identity](https://pypi.org/project/passage-identity/) package depends on a PASSAGE_APP_ID environment variable being set. An application's ID can be copied off of the Passage Console. In this example app, we use the environmnet variable to initialize the Passage SDK and in the HTML template for the login page.
 
 To run this example app, make a virtual environment and run the following commands (the environment variables are stored in `.flaskenv`).
 
@@ -26,7 +27,26 @@ Run the web server
 >> flask run
 ```
 
+## Run With Docker
+
+Make sure you have [docker installed on your computer](https://docs.docker.com/get-docker/).
+
+Create your docker image:
+
+```bash
+$ docker build -t example-python .
+```
+
+Run your docker container using the example-python image, changing the port numbers as necessary:
+
+```bash
+$ docker run -p 5000:5000 example-python
+```
+
+You can now visit http://localhost:5000 in your browser to see Passage in action.
+
 ## Authenticating an HTTP Request
+
 A Python server can easily authenticate an HTTP request using the Passage SDK, as shown below. You must pass the Passage app ID when initializing
 the Passage object. If you would like to use management functionality like getting user information, you must also provide an API key, which can be generated in the Passage console. To authenticate a request, an API key is NOT required.
 
@@ -49,6 +69,7 @@ def authenticatedEndpoint():
 ```
 
 ## Authorizing a User
+
 It is important to remember that the `psg.authenticateRequest()` function validates that a request is properly authenticated, but makes no assertions about who it is authorized for. To perform an authorization check, the Passage User ID can be referenced.
 In the above example, it would look something like this:
 
@@ -66,8 +87,9 @@ except:
 ```
 
 ## Get User
- To get user information, you can use the Passage SDK with an API key. This will authenticate your web server to Passage and grant you management
- access to user information. API keys should never be hard-coded in source code, but stored in environment variables or a secrets storage mechanism.
+
+To get user information, you can use the Passage SDK with an API key. This will authenticate your web server to Passage and grant you management
+access to user information. API keys should never be hard-coded in source code, but stored in environment variables or a secrets storage mechanism.
 
 ```python
 @auth.before_request
@@ -87,6 +109,7 @@ def authenticatedEndpoint():
 ```
 
 ## Adding Authentication to the Frontend
+
 The easiest way to add authentication to a web frontend is with a Passage Element. The HTML below will automatically embed a complete UI/UX for user sign-in and sign-up. In this example application, we automatically use the PASSAGE_APP_ID environment variable in the `app-id` attribute.
 
 ```html
