@@ -34,6 +34,13 @@ def dashboard():
 
     # use Passage to get the user information and add it to the dashboard
     psg_user = psg.getUser(g.user)
-    return render_template('dashboard.html', email=psg_user.email)
+
+    identifier = ""
+    if psg_user.email:
+        identifier = psg_user.email
+    elif psg_user.phone:
+        identifier = psg_user.phone
+
+    return render_template('dashboard.html', identifier=identifier)
 
 	
