@@ -55,14 +55,11 @@ def createUser():
     u.passage_id = g.user
     # get name from the request
     u.name = request.get_json()["name"]
-    print(u.name)
-    print(u.passage_id)
+
     # commit to database
-    try:
-        db.session.add(u)
-        db.session.commit()
-    except Exception as e:
-        print(e)
+    db.session.add(u)
+    db.session.commit()
+
 
     return jsonify({"result": 200})
 
