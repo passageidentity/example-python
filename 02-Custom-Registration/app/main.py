@@ -25,8 +25,7 @@ def before_request():
         # this is an issue with the auth check, return 401
         return render_template('unauthorized.html')
 
-#auth.before_request(before_request)
-
+@main.route('/')
 @main.route('/login')
 def index():
     return render_template('index.html', psg_app_id=PASSAGE_APP_ID)
