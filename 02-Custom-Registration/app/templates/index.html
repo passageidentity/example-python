@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <title>Try Passage</title>
+  <script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="main-header">
+    <a href="https://passage.id/" passHref><div class="passage-logo"></div></a>
+    <div class="header-text">Passage + Vue.js 3 Example App</div>
+    <div class="spacer"></div>
+    <a href="https://passage.id/" passHref><span class="text">Go to Passage</span></a>
+  </div>
+
+<div class="main-container">
+  
+  <div class="form-container">
+    <div id="login-header" style="align-self: center; font-weight: bold; font-family: 'DM Sans'">
+      <h2>Login</h2>
+    </div>
+
+  <!-- Passage will populate this div with a complete authentication UI/UX -->
+  <!-- TODO: Replace your app ID here!-->    
+  <passage-login app-id="{{psg_app_id}}"></passage-login>
+  <script src="https://cdn.passage.id/passage-web.js"></script>
+
+    <p>
+      <div id="switch" style="align-self: center;">
+      Don't have an account? <span><a href="/register">Register</a></span>
+       </div>
+    </p>
+</div>
+</div>
+
+<div class="footer">
+  Learn more with our 
+  <a href="https://docs.passage.id">Documentation</a> and
+  <a href="https://github.com/passageidentity">Github</a>.
+  <br>
+</div>
+
+</body>
+</html>

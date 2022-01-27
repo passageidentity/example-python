@@ -1,4 +1,4 @@
-from flask import Blueprint, g, render_template, request
+from flask import Blueprint, g, render_template, request, jsonify
 import os
 from passageidentity import Passage, PassageError
 
