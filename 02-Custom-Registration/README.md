@@ -1,6 +1,7 @@
-# Using Passage with Python
+# Custom Registration Fields with Pasasge
 
-Passage provides a Python package to easily authenticate HTTP requests. This repo is an example of how to use Passage in a Python Flask web application.
+This application is an extension of the basic Flask login application that includes separate login and registration pages, in addition to custom registration
+fields. This example application shows you how to integrate Passage with your own database.
 
 ## Configure Environment Variables
 
