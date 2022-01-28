@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+  crossorigin="anonymous"
+/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <title>Try Passage</title>
+</head>
+<body>
+  <div class="main-header">
+    <a href="https://passage.id/" passHref><div class="passage-logo"></div></a>
+    <div class="header-text">Passage + Python Example App</div>
+    <div class="spacer"></div>
+    <a href="https://passage.id/" passHref><span class="text">Go to Passage</span></a>
+  </div>
+
+  <div class="main-container">
+    <div class="form-container">
+      <div class="title">Unauthorized</div>
+      <div class="message">
+        You have not logged in and cannot view the dashboard.
+        <br/><br/>
+        <a href="/login" class="link">Login to continue.</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include the passage-web JavaScript from the Passage CDN. -->
+  <script src="https://cdn.passage.id/passage-web.js"></script>
+</body>
+</html>
