@@ -48,8 +48,7 @@
     <script src="https://cdn.passage.id/passage-web.js"></script>
     <script>
       const onSuccess = (authResult) =>{
-        console.log(authResult)
-        document.cookie = "psg_auth_token=" + authResult.authToken + ";path=/"
+        document.cookie = "psg_auth_token=" + authResult.authToken + ";path=/";
         $.ajax({
           type: "POST",
           async: false,
@@ -59,36 +58,38 @@
           dataType: 'json' 
         });
         
-        window.location.href = authResult.redirectURL
+        window.location.href = authResult.redirectURL;
       }
-      const passageAuth = document.querySelector("passage-register")
-      passageAuth.onSuccess = onSuccess
+      const passageAuth = document.querySelector("passage-register");
+      passageAuth.onSuccess = onSuccess;
 
       // Mutation observer code to show fields
       function checkShowMessage() {
-        const shadowRoot = (document.querySelector("passage-register")).shadowRoot
-
-        if (shadowRoot !== null) {
-          const emailInput = shadowRoot.querySelector('.view-email-input')
-          if  (emailInput === null) {
-            document.getElementById("custom-data").style.display="none";
-            document.getElementById("goto-login").style.display="none";
-          }
-          else {
-            document.getElementById("custom-data").style.display="inline";
-            document.getElementById("goto-login").style.display="inline";
-          }
+        const shadowRoot = (document.querySelector("passage-register")).shadowRoot;
+        if (shadowRoot === null) {
+          return;
         }
+  
+        const emailInput = shadowRoot.querySelector('.view-email-input');
+        if  (emailInput === null) {
+          document.getElementById("custom-data").style.display="none";
+          document.getElementById("goto-login").style.display="none";
+        }
+        else {
+          document.getElementById("custom-data").style.display="inline";
+          document.getElementById("goto-login").style.display="inline";
+        }
+        
       }
       const observer = new MutationObserver(function (mutations) {
         mutations.forEach(() => {
-          checkShowMessage()
+          checkShowMessage();
         })
       })
 
-      const shadowRoot = (document.querySelector("passage-register")).shadowRoot
+      const shadowRoot = (document.querySelector("passage-register")).shadowRoot;
       if (shadowRoot !== null) {
-        observer.observe(shadowRoot, { childList: true, subtree: true })
+        observer.observe(shadowRoot, { childList: true, subtree: true });
       }
     </script>
       <p>
