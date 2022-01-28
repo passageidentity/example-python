@@ -49,6 +49,15 @@
     <script>
       const onSuccess = (authResult) =>{
         document.cookie = "psg_auth_token=" + authResult.authToken + ";path=/";
+        const urlParams = new URLSearchParams(window.location.search)
+        const magicLink = urlParams.has('psg_magic_link') ? urlParams.get('psg_magic_link') : null
+        if (magicLink !== null) {
+          // Wait n seconds so user knows something happened
+          new Promise((resolve) => {
+            setTimeout(resolve, 3000)
+          }).then( ()=>{ window.location.href = authResult.redirectURL;})
+          return;
+        }
         $.ajax({
           type: "POST",
           async: false,
