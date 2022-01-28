@@ -8,6 +8,8 @@ from app import db
 main = Blueprint('main', __name__)
 auth = Blueprint('auth', __name__)
 
+API_URL = os.environ.get("API_URL")
+
 # Passage setup
 PASSAGE_API_KEY = os.environ.get("PASSAGE_API_KEY")
 PASSAGE_APP_ID = os.environ.get("PASSAGE_APP_ID")
@@ -33,7 +35,7 @@ def index():
 
 @main.route('/register')
 def register():
-    return render_template('register.html', psg_app_id=PASSAGE_APP_ID)
+    return render_template('register.html', psg_app_id=PASSAGE_APP_ID, api_url=API_URL)
 
 @auth.route('/dashboard', methods=['GET'])
 def dashboard():

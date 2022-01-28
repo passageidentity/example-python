@@ -52,7 +52,7 @@
         $.ajax({
           type: "POST",
           async: false,
-          url: "http://localhost:5000/user",
+          url: "{{api_url}}/user",
           data: JSON.stringify({"name":document.getElementById('name').value}), // get this data from form fields
           contentType: "application/json",
           dataType: 'json' 
