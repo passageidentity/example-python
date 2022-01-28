@@ -53,6 +53,12 @@ def dashboard():
 @auth.route('/user', methods=['POST'])
 def createUser():
     # g.user should be set here.
+
+    # check if user exists to prevent dupes
+    user = User.query.filter_by(passage_id=g.user).first()
+    if user:
+        return jsonify({"result": 200})
+
     u = User()
     u.passage_id = g.user
     # get name from the request
