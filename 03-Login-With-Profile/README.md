@@ -1,6 +1,6 @@
 # Using Passage with Python
 
-Passage provides a Python package to easily authenticate HTTP requests. This repo is an example of how to use Passage in a Python Flask web application.
+Passage provides a Python package to easily authenticate HTTP requests. This folder is an example of how to use Passage in a Python Flask web application. It uses the Passage Auth element for login and registration and the Passage Profile element for the user dashboard.
 
 ## Configure Environment Variables
 
@@ -55,7 +55,7 @@ the Passage object. If you would like to use management functionality like getti
 def before_request():
     try:
         # use passage to set the user ID
-        psg = Passage(psg_app_id)
+        psg = Passage(YOUR_APP_ID)
         g.passageUserID = psg.authenticateRequest(request)
     except PassageError as e:
         # this is an issue with the auth check, return 401
@@ -86,28 +86,6 @@ except:
 }
 ```
 
-## Get User
-
-To get user information, you can use the Passage SDK with an API key. This will authenticate your web server to Passage and grant you management
-access to user information. API keys should never be hard-coded in source code, but stored in environment variables or a secrets storage mechanism.
-
-```python
-@auth.before_request
-def before_request():
-    try:
-        # use passage to set the user ID
-        psg = Passage(psg_app_id, psg_api_key)
-        g.passageUserID = psg.authenticateRequest(request)
-    except PassageError as e:
-        # this is an issue with the auth check, return 401
-        return render_template('unauthorized.html')
-
-@auth.route('/home')
-def authenticatedEndpoint():
-    user = psg.getUser(g.passageUserID)
-	print(user.email)
-```
-
 ## Adding Authentication to the Frontend
 
 The easiest way to add authentication to a web frontend is with a Passage Element. The HTML below will automatically embed a complete UI/UX for user sign-in and sign-up. In this example application, we automatically use the PASSAGE_APP_ID environment variable in the `app-id` attribute.
@@ -115,6 +93,15 @@ The easiest way to add authentication to a web frontend is with a Passage Elemen
 ```html
 <!-- Passage will populate this custom element with a complete authentication UI/UX. -->
 <passage-auth app-id="<Passage App ID>"></passage-auth>
+
+<!-- Include the passage-web JavaScript from the Passage CDN. -->
+<script src="https://cdn.passage.id/passage-web.js"></script>
+```
+
+To add the Profile Element to the dashboard, do the following:
+```html
+<!-- Passage will populate this custom element with a complete profile UI/UX. -->
+<passage-profile app-id="<Passage App ID>"></passage-profile>
 
 <!-- Include the passage-web JavaScript from the Passage CDN. -->
 <script src="https://cdn.passage.id/passage-web.js"></script>
