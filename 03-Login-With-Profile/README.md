@@ -106,3 +106,5 @@ To add the Profile Element to the dashboard, do the following:
 <!-- Include the passage-web JavaScript from the Passage CDN. -->
 <script src="https://cdn.passage.id/passage-web.js"></script>
 ```
+
+All Passage Elements can be customized using CSS variables. You can learn more in our [docs](https://docs.passage.id/web/ui-customization).
