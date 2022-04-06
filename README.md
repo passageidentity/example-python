@@ -10,5 +10,6 @@ in Python, Go, and Node.js to support user verification. To learn more visit our
 
 ## Examples in This Repo
 
-[Authenticating with Passage](01-Login-Flask/README.md)
-[Collecting Custom Registration Data](02-Custom-Registration/README.md)
+* [Authenticating with Passage](./01-Login-Flask)
+* [Collecting Custom Registration Data](./02-Custom-Registration)
+* [Login with Profile Page](./03-Login-With-Profile)
