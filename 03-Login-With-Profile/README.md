@@ -9,7 +9,7 @@ Passage provides a Python package to easily authenticate HTTP requests. This fol
 
 ## Configuring a Flask Server
 
-The [passage-identity](https://pypi.org/project/passage-identity/) package depends on a PASSAGE_APP_ID environment variable being set. An application's ID can be copied off of the Passage Console. In this example app, we use the environmnet variable to initialize the Passage SDK and in the HTML template for the login page.
+The [passage-identity](https://pypi.org/project/passage-identity/) package requires a Passage App ID and an optional API Key for more advanced functionality. An application's ID and API Key can be copied off of the Passage Console. In this example app, we use the environment variable to initialize the Passage SDK and in the HTML template for the login page.
 
 To run this example app, make a virtual environment and run the following commands (the environment variables are stored in `.flaskenv`).
 
@@ -55,7 +55,7 @@ the Passage object. If you would like to use management functionality like getti
 def before_request():
     try:
         # use passage to set the user ID
-        psg = Passage(psg_app_id)
+        psg = Passage(YOUR_APP_ID)
         g.passageUserID = psg.authenticateRequest(request)
     except PassageError as e:
         # this is an issue with the auth check, return 401
