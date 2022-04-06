@@ -70,7 +70,7 @@ def authenticatedEndpoint():
 
 ## Authorizing a User
 
-It is important to remember that the `psg.authenticateRequest()` function validates that a request is properly authenticated, but makes no assertions about who it is authorized for. To perform an authorization check, the Passage User ID can be referenced.
+It is important to remember that the `psg.authenticateRequest()` method validates that a request is properly authenticated, but makes no assertions about who it is authorized for. To perform an authorization check, the Passage User ID can be referenced.
 In the above example, it would look something like this:
 
 ```python
