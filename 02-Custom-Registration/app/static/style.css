@@ -2,7 +2,7 @@ body {
   margin: 0px;
   height: 100vh;
   font-family: 'DM Sans', sans-serif;
-  background-color: #BBC9E5;
+  background-color: #E5E5E5;
 }
 
 .form-container {
@@ -29,7 +29,7 @@ body {
 
 .main-header{
   padding: 1rem 2rem;
-  background-color: #27417E;
+  background-color: #282727;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -45,18 +45,19 @@ body {
 }
   
 .passage-logo {
-  background-image: url('https://storage.googleapis.com/passage-docs/passage-logo.svg');
+  background-image: url('https://storage.googleapis.com/passage-docs/passage-logo-dark.svg');
   background-repeat: no-repeat;
   width: 60px;
   height: 60px;
-  margin-left: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
   cursor: pointer;
 }
 .spacer {
   flex-grow: 1;
 }
   
-.text {
+.header-link {
   margin-right: 10px;
   color: white;
   text-decoration-color: white;
