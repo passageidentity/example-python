@@ -1,6 +1,6 @@
 # Custom Registration Fields with Pasasge
 
-This application is an extension of the basic Flask login application that includes separate login and registration pages, in addition to custom registration fields. This example application shows you how to add custom registration fields (in this case, a "name" field) and integrate Passage with your own database. For a full guide, see our documentation [here](https://docs.passage.id/popular-guides/custom-registration-data).
+This application is an extension of the basic Flask login application that includes separate login and registration pages, in addition to custom registration fields. This example application shows you how to add custom registration fields (in this case, a "name" field) and integrate Passage with your own database. For a full guide, see our documentation [here](https://docs.passage.id/guides/custom-registration-data).
 
 ## Configure Environment Variables
 
